@@ -136,12 +136,18 @@ Route::post('contact/message/store', [ContactController::class, 'contact_message
 
 
 //grocery
+Route::get('wishlist', [WelcomeController::class, 'Wishlist'])->name('wishlist');
 
-// Route::get('/wishlist', [CartController::class, 'getWishlist'])->name('frontend.wishlist');
 //not working
 // wishlist
+//work in welcom.blade.php
 Route::get('add_to_wishlist/{id}', [CartController::class, 'addToWishlist'])->name('frontend.add_to_wishlist');
 // Route::get('/frontend/add_to_cart/{id}/{qty}', [App\Http\Controllers\Frontend\CartController::class, 'AddToCart'])->name('frontend.add_to_cart');
+Route::get('/frontend/count_wishlist', [CartController::class, 'countWishlist'])->name('frontend.countWishlist');
+ Route::get('add_to_cart/{id}', [CartController::class, 'AddToCart'])->name('frontend.add_to_cart');
+ Route::get('frontend/viewcart_data', [CartController::class, 'getViewCartData'])->name('frontend.getViewCartData');
+ Route::get('remove_to_cart/{rowid}', [CartController::class, 'RemoveToCart'])->name('frontend.remove_to_cart');
+Route::get('remove_to_wishlist/{rowid}', [WelcomeController::class, 'RemoveToWishlist'])->name('frontend.remove_to_wishlist');
 
 
-Route::get('add_to_cart/{id}', [CartController::class, 'AddToCart'])->name('frontend.add_to_cart');
+ Route::get('productview/{id}', [ProductController::class, 'getProductPage'])->name('frontend.productview');

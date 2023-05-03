@@ -29,7 +29,7 @@ class CartController extends Controller
         // dd($response);
 		if($response){
 			$res['msgType'] = 'success';
-			$res['msg'] = __('New Data Added Successfully');
+			$res['msg'] = __('New Data Added ');
 		}else{
 			$res['msgType'] = 'error';
 			$res['msg'] = __('Added product to wishlist failed.');
@@ -37,12 +37,16 @@ class CartController extends Controller
 
 		return response()->json($res);
 	}
+
     public function countWishlist(){
 
 		$count = Cart::instance('wishlist')->content()->count();
     // dd($count);
 		return response()->json($count);
 	}
+
+
+
     public function AddToCart($id){
 
 		$res = array();
@@ -56,11 +60,8 @@ class CartController extends Controller
 		// $data['qty'] = $qty == 0 ? 1 : $qty;
 		$data['price'] = $datalist['sale_price'];
 		$data['weight'] = 0;
-    // dd($data);
-
-
-
-		$response = Cart::instance('shopping')->add($data);
+    //  dd($data);
+	$response = Cart::instance('shopping')->add($data);
 		if($response){
 			$res['msgType'] = 'success';
 			$res['msg'] = __('New Data Added Successfully');
@@ -71,4 +72,43 @@ class CartController extends Controller
 
 		return response()->json($res);
 	}
+
+    public function getViewCartData(){
+    $count = Cart::instance('shopping')->count();
+         $datalist = array();
+		$datalist['total_qty'] = $count;
+         return response()->json($datalist);
+    }
+
+    public function RemoveToCart($rowid){
+        // dd($rowid );
+		$res = array();
+
+		$response = Cart::instance('shopping')->remove($rowid);
+
+		if($response == ''){
+			$res['msgType'] = 'success';
+			$res['msg'] = __('Data Removed Successfully');
+		}else{
+			$res['msgType'] = 'error';
+			$res['msg'] = __('Data remove failed');
+		}
+
+
+		// return response()->json($res);
+        return redirect()->back()->with('message','Cat Remove Successfully!!!');
+
+
+
+
+	}
+    public function getProductPage($id){
+
+        $data=Product::find($id);
+    //  dd($data);
+
+        return view('front.frontInterface.productview',compact('data'));
+    }
+
+
 }

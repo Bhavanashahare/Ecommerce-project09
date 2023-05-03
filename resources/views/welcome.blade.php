@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="site-wrap">
-        <div class="site-blocks-cover" style="background-image: url(images/hero_1.jpg);" data-aos="fade">
+        <div class="site-blocks-cover" style="background-image: url(images/1.webp);" data-aos="fade">
             <div class="container">
                 <div class="row align-items-start align-items-md-center justify-content-end">
                     <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
@@ -240,4 +240,51 @@
 			}
 		});
     });
+
+//cart grocery [public/frontend /pages/cart.js]
+function onRemoveToCart(id) {
+	var rowid = $("#removetocart_"+id).data('id');
+
+	$.ajax({
+		type : 'GET',
+		url: base_url + '/frontend/remove_to_cart/'+rowid,
+		dataType:"json",
+		success: function (response) {
+
+			var msgType = response.msgType;
+			var msg = response.msg;
+
+			if (msgType == "success") {
+				onSuccessMsg(msg);
+			} else {
+				onErrorMsg(msg);
+			}
+
+			onViewCart();
+		}
+
+	});
+}
+    function onRemoveToWishlist(id) {
+	var rowid = $("#removetowishlist_"+id).data('id');
+
+	$.ajax({
+		type : 'GET',
+		url: base_url + '/frontend/remove_to_wishlist/'+rowid,
+		dataType:"json",
+		success: function (response) {
+
+			var msgType = response.msgType;
+			var msg = response.msg;
+
+			if (msgType == "success") {
+				onSuccessMsg(msg);
+			} else {
+				onErrorMsg(msg);
+			}
+
+			onViewCart();
+		}
+	});
+}
 </script>

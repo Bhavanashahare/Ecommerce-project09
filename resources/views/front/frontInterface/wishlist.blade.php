@@ -1,11 +1,10 @@
-
-
-
-
 @extends('front.layouts.master')
 @section('title', 'Cart')
 @section('content')
-  <div class="bg-light py-3">
+
+
+
+    <div class="bg-light py-3">
       <div class="container">
         <div class="row">
           <div class="col-md-12 mb-0"><a href="index.html">Home</a>
@@ -31,11 +30,10 @@
                     <th class="product-thumbnail">Image</th>
                     <th class="product-name">Product</th>
                     <th class="product-price">SoldBy</th>
-                    <th class="product-quantity">Unit</th>
-                    <th class="product-price">Price</th>
                     <th class="product-price">Quantity</th>
-                    <th class="product-price">Total</th>
-                    <th class="product-remove">Remove</th>
+                    <th class="product-price">Price</th>
+                    <th class="product-quantity">Action</th>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -49,7 +47,7 @@
 
                   <tr>
                     <td class="product-thumbnail">
-
+                     {{-- <a href="{{route('frontend.product', [$row->id,($row->name)]) }}"> --}}
                        <img src="{{asset('uploads/'.$product->image)}}" alt=""
                        width="50px" height="49px" alt="Image" class="img-fluid">
                     </td>
@@ -57,13 +55,8 @@
                       <h2 class="h5 text-black">{{$product->title}}</h2>
                     </td>
                     <td>priya</td>
-                    <td>kg</td>
 
-                    <td> {{$product->sale_price}}</td>
-                    {{-- <td class="text-center pro-total-price-w" data-title="{{ __('Total') }}:">
-                        <span class="pro-total-price">{{ $totalPrice }}</span>
-                    </td> --}}
-
+                    {{-- <td>{{$product->sale_price}}</td> --}}
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
@@ -73,30 +66,28 @@
                         <input type="text" class="form-control text-center"
                          value="1" placeholder="" aria-label="Example text with button addon"
                          aria-describedby="button-addon1">
+
                         <div class="input-group-append">
                           <button class="btn btn-outline-primary js-btn-plus"
                            type="button">&plus;</button>
+                           <td>{{$product->sale_price}}</td>
                         </div>
                       </div>
 
                     </td>
-                    <td>{{$product->sale_price}}</td>
-
-
 
                     <td class="text-center pro-remove-w" data-title="Remove:">
 
-                      <a class="pro-remove" data-id="{{ $d->rowId }}"
-                        id="removetoviewcart_{{ $product->id }}"
-                         href="{{route('frontend.productview',$product->id)}}">
-                        <button class="btn btn-outline-primary " type="button">View</button></a>
-
-                      <a class="pro-remove" data-id="{{ $d->rowId }}"
-                        id="removetoviewcart_{{ $product->id }}"
-                          href="{{route('frontend.remove_to_cart',$d->rowId)}}">
-                         <button type="submit"class="btn  btn-alert btn-sm">Remove</a></button>
-                         </td>
-                  </tr>
+                        <a class="pro-remove" data-id="{{ $d->rowId }}"
+                          id="removetoviewwishlist_{{ $product->id }}"
+                            href="{{route('frontend.productview',$product->id)}}">
+                          <button class="btn btn-outline-primary " type="button">View</button></a>
+                        <a class="pro-remove" data-id="{{ $d->rowId }}"
+                          id="removetoviewwishlist_{{ $product->id }}"
+                            href="{{route('frontend.remove_to_wishlist',$d->rowId)}}">
+                           <button type="submit"class="btn  btn-alert btn-sm">Remove</a></button>
+                           </td>
+                        </tr>
                   {{-- <tr>
                     <td class="product-thumbnail">
                       <img src="images/cloth_2.jpg" alt="Image" class="img-fluid">
@@ -122,7 +113,6 @@
                     <td>$49.00</td>
                     <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
                   </tr> --}}
-
                   @endforeach
                 </tbody>
               </table>

@@ -88,6 +88,12 @@ class ProductController extends Controller
         return redirect()->route('products')->with ('message','Data Delete Successfully!!!');
     }
 
+    public function getProductPage($id){
 
+        $data=Product::find($id);
+    //  dd($data);
+
+        return view('front.frontInterface.productview',compact('data'));
+    }
 
 }

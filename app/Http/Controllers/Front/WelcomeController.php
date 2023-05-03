@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\welcome;
 use App\Models\Product;
 use App\Models\Category;
+use Cart;
 class WelcomeController extends Controller
 {
     public function index(){
@@ -48,9 +49,19 @@ $product=Product::get()->last();
         return view('front.frontInterface.thankyou');
     }
 
+
     public function cart(){
-        return view('front.frontInterface.cart');
+        $data = Cart::instance('shopping')->content();
+        // dd($data);
+            return view('front.frontInterface.cart',compact('data'));
+
     }
+    public function Wishlist(){
+        $data = Cart::instance('wishlist')->content();
+            return view('front.frontInterface.wishlist',compact('data'));
+
+    }
+
 
     public function user_profile(){
         return view('front.frontInterface.user_profile');
@@ -79,6 +90,42 @@ $product=Product::get()->last();
             return view('admin.user_index',compact ('user'));
             }
 
+        //     public function RemoveToWishlist($rowid){
+		// $res = array();
+
+		// $response = Cart::instance('wishlist')->remove($rowid);
+
+		// if($response == ''){
+		// 	$res['msgType'] = 'success';
+		// 	$res['msg'] = __('Data Removed Successfully');
+		// }else{
+		// 	$res['msgType'] = 'error';
+		// 	$res['msg'] = __('Data remove failed');
+		// }
+
+		// // return response()->json($res);
+
+
+        //         return redirect()->route('front.frontInterface.wishlist') ->with('message','Data Remove Successfully!!!');
+
+            //  }
+        public function RemoveToWishlist($rowid){
+            $res = array();
+
+            $response = Cart::instance('wishlist')->get($rowid);
+            // dd( $response);
+            if($response == ''){
+                $res['msgType'] = 'success';
+                $res['msg'] = __('Data Removed Successfully');
+            }else{
+                $res['msgType'] = 'error';
+                $res['msg'] = __('Data remove failed');
+            }
+
+            // return response()->json($res);
+            return redirect()->route('wishlist')->with('message',"Wishlist remove Successfully!");
+
     }
 
+}
 
