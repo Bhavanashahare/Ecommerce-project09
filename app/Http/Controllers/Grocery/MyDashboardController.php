@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Grocery;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Product;
-class ProductviewController extends Controller
+
+class MyDashboardController extends Controller
 {
-    // 
+    //
 }

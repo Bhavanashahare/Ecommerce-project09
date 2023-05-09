@@ -119,11 +119,13 @@
                                 <div class="item">
                                     <div class="block-4 text-center">
                                         <figure class="block-4-image">
+                                            <a href="{{route('frontend.productview',$product->id)}}">
+
                                             <img src="{{ asset('uploads/' . $product->image) }}" width="320px"
-                                                height="217.14px">
+                                                height="217.14px"></a>
                                         </figure>
                                         <div class="block-4-text p-4">
-                                            <h3><a href="#">{{ $product->title }}</a></h3>
+                                            <h3><a href="{{route('frontend.productview',$product->id)}}">{{ $product->title }}</a></h3>
                                             <p class="mb-0">{!! $product->description !!}</p>
                                             <p class="text-primary font-weight-bold">₹ 50</p>
 {{-- cart code --}}

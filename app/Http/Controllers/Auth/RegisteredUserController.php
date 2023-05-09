@@ -15,14 +15,26 @@ use Illuminate\View\View;
 use Hash;
 
 
+
+
 class RegisteredUserController extends Controller
 {
     /**
      * Display the registration view.
      */
     public function create(): View
+
     {
-        return view('auth.register');
+        $data=User::all();
+         if($data->role==1)
+        {
+            return view('auth.register');
+        }
+        else{
+            return view('dashboard');
+
+        }
+
     }
 
     /**

@@ -1,103 +1,102 @@
-
-
-
-
 @extends('front.layouts.master')
 @section('title', 'Cart')
 @section('content')
-  <div class="bg-light py-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a>
-            <span class="mx-2 mb-0">/</span> <strong class="text-black">Cart</strong></div>
+    <div class="bg-light py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-0"><a href="index.html">Home</a>
+                    <span class="mx-2 mb-0">/</span> <strong class="text-black">Cart</strong>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
 
     <div class="site-section">
-      <div class="container">
-        <div class="row mb-5">
-          <form class="col-md-12" >
-            <div class="site-blocks-table">
-              @if(session()->has('message'))
-               <div class="alert alert-success">
-              {{session()->get ('message')}}
-</div>
-   @endif
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th class="product-thumbnail">Image</th>
-                    <th class="product-name">Product</th>
-                    <th class="product-price">SoldBy</th>
-                    <th class="product-quantity">Unit</th>
-                    <th class="product-price">Price</th>
-                    <th class="product-price">Quantity</th>
-                    <th class="product-price">Total</th>
-                    <th class="product-remove">Remove</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {{-- for cart file --}}
-                  @foreach($data as $d)
-                  {{-- @dd($d) --}}
-                  <?php
-                  $product=\App\Models\Product::find($d->id);
-                  // @dd($product)
-                  ?>
+        <div class="container">
+            <div class="row mb-5">
+                <form class="col-md-12">
+                    <div class="site-blocks-table">
+                        @if (session()->has('message'))
+                            <div class="alert alert-success">
+                                {{ session()->get('message') }}
+                            </div>
+                        @endif
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="product-thumbnail">Image</th>
+                                    <th class="product-name">Product</th>
+                                    <th class="product-price">SoldBy</th>
+                                    <th class="product-quantity">Unit</th>
+                                    <th class="product-price">Price</th>
+                                    <th class="product-price">Quantity</th>
+                                    <th class="product-price">Total</th>
+                                    <th class="product-remove">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- for cart file --}}
+                                @foreach ($data as $d)
+                                    {{-- @dd($d) --}}
+                                    <?php
+                                    $product = \App\Models\Product::find($d->id);
+                                    // @dd($product)
+                                    ?>
 
-                  <tr>
-                    <td class="product-thumbnail">
 
-                       <img src="{{asset('uploads/'.$product->image)}}" alt=""
-                       width="50px" height="49px" alt="Image" class="img-fluid">
-                    </td>
-                    <td class="product-name">
-                      <h2 class="h5 text-black">{{$product->title}}</h2>
-                    </td>
-                    <td>priya</td>
-                    <td>kg</td>
+                                        <tr>
+                                            <td class="product-thumbnail">
 
-                    <td> {{$product->sale_price}}</td>
-                    {{-- <td class="text-center pro-total-price-w" data-title="{{ __('Total') }}:">
+                                                <img src="{{ asset('uploads/' . $product->image) }}" alt=""
+                                                    width="50px" height="49px" alt="Image" class="img-fluid">
+                                            </td>
+                                            <td class="product-name">
+                                                <h2 class="h5 text-black">{{ $product->title }}</h2>
+                                            </td>
+                                            <td>priya</td>
+                                            <td>kg</td>
+
+                                            <td> {{ $product->sale_price }}</td>
+                                            {{-- <td class="text-center pro-total-price-w" data-title="{{ __('Total') }}:">
                         <span class="pro-total-price">{{ $totalPrice }}</span>
                     </td> --}}
 
-                    <td>
-                      <div class="input-group mb-3" style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus"
-                           type="button">&minus;</button>
-                        </div>
-                        <input type="text" class="form-control text-center"
-                         value="1" placeholder="" aria-label="Example text with button addon"
-                         aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus"
-                           type="button">&plus;</button>
-                        </div>
-                      </div>
+                                            <td>
+                                                <div class="input-group mb-3" style="max-width: 120px;">
+                                                    <div class="input-group-prepend">
+                                                        <button class="btn btn-outline-primary js-btn-minus"
+                                                            type="button">&minus;</button>
+                                                    </div>
+                                                    <input type="text" class="form-control text-center" value="1"
+                                                        placeholder="" aria-label="Example text with button addon"
+                                                        aria-describedby="button-addon1">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-primary js-btn-plus"
+                                                            type="button">&plus;</button>
+                                                    </div>
+                                                </div>
 
-                    </td>
-                    <td>{{$product->sale_price}}</td>
+                                            </td>
+                                            <td>{{ $product->sale_price }}</td>
 
 
 
-                    <td class="text-center pro-remove-w" data-title="Remove:">
+                                            <td class="text-center pro-remove-w" data-title="Remove:">
 
-                      <a class="pro-remove" data-id="{{ $d->rowId }}"
-                        id="removetoviewcart_{{ $product->id }}"
-                         href="{{route('frontend.productview',$product->id)}}">
-                        <button class="btn btn-outline-primary " type="button">View</button></a>
+                                                <a class="pro-remove" data-id="{{ $d->rowId }}"
+                                                    id="removetoviewcart_{{ $product->id }}"
+                                                    href="{{ route('frontend.productview', $product->id) }}">
+                                                    <button class="btn btn-outline-primary "
+                                                        type="button">View</button></a>
 
-                      <a class="pro-remove" data-id="{{ $d->rowId }}"
-                        id="removetoviewcart_{{ $product->id }}"
-                          href="{{route('frontend.remove_to_cart',$d->rowId)}}">
-                         <button type="submit"class="btn  btn-alert btn-sm">Remove</a></button>
-                         </td>
-                  </tr>
-                  {{-- <tr>
+                                                <a class="pro-remove" data-id="{{ $d->rowId }}"
+                                                    id="removetoviewcart_{{ $product->id }}"
+                                                    href="{{ route('frontend.remove_to_cart', $d->rowId) }}">
+                                                    <button type="submit"class="btn  btn-alert btn-sm">Remove</a></button>
+                                            </td>
+                                        </tr>
+                                        {{-- <tr>
                     <td class="product-thumbnail">
                       <img src="images/cloth_2.jpg" alt="Image" class="img-fluid">
                     </td>
@@ -122,14 +121,13 @@
                     <td>$49.00</td>
                     <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
                   </tr> --}}
-
-                  @endforeach
-                </tbody>
-              </table>
+                                    @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
             </div>
-          </form>
-        </div>
-{{--
+            {{--
         <div class="row">
           <div class="col-md-6">
             <div class="row mb-5">
@@ -187,8 +185,8 @@
             </div>
           </div>
         </div> --}}
-      </div>
+        </div>
     </div>
 
-    
-  @endsection
+
+@endsection

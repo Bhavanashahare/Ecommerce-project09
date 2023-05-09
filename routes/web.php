@@ -13,6 +13,8 @@ use App\Http\Controllers\Front\WelcomeController;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\grocery\CartController;
+use App\Http\Controllers\Grocery\MyDashboardController;
+use App\Http\Controllers\Grocery\Order_masterController;
 
 // i didn't migrate table on review and order in table we cannot migrate or create table or datable//
 
@@ -125,6 +127,8 @@ Route::get('/shop', [WelcomeController::class, 'shop'])->name('shop');
 Route::get('/shop-single', [WelcomeController::class, 'shopsingle'])->name('shopsingle');
 Route::get('/cart', [WelcomeController::class, 'cart'])->name('cart');
 Route::get('/checkout', [WelcomeController::class, 'checkout'])->name('checkout');
+ Route::post('make_order/store', [Order_masterController::class, 'LoadMakeOrder'])->name('make_order.store');
+
 Route::get('/thankyou', [WelcomeController::class, 'thankyou'])->name('thankyou');
 //
 Route::get('/user_profile', [WelcomeController::class, 'user_profile'])->name('user_profile');
@@ -151,3 +155,8 @@ Route::get('remove_to_wishlist/{rowid}', [WelcomeController::class, 'RemoveToWis
 
 
  Route::get('productview/{id}', [ProductController::class, 'getProductPage'])->name('frontend.productview');
+
+
+//  dashboard
+ Route::get('my-dashboard', [MyDashboardController::class, 'MyDashboard'])->name('frontend.my-dashboard')->middleware('auth');
+
