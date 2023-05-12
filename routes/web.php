@@ -58,7 +58,7 @@ require __DIR__ . '/auth.php';
 //     return view('layouts.master');
 // });
 
-
+//
 
 
 // Category
@@ -127,6 +127,7 @@ Route::get('/shop', [WelcomeController::class, 'shop'])->name('shop');
 Route::get('/shop-single', [WelcomeController::class, 'shopsingle'])->name('shopsingle');
 Route::get('/cart', [WelcomeController::class, 'cart'])->name('cart');
 Route::get('/checkout', [WelcomeController::class, 'checkout'])->name('checkout');
+
  Route::post('make_order/store', [Order_masterController::class, 'LoadMakeOrder'])->name('make_order.store');
 
 Route::get('/thankyou', [WelcomeController::class, 'thankyou'])->name('thankyou');
@@ -160,3 +161,9 @@ Route::get('remove_to_wishlist/{rowid}', [WelcomeController::class, 'RemoveToWis
 //  dashboard
  Route::get('my-dashboard', [MyDashboardController::class, 'MyDashboard'])->name('frontend.my-dashboard')->middleware('auth');
 
+ Route::get('dashboard2', [MyDashboardController::class, 'Dashboard'])->name('dashboard2')->middleware('auth');
+
+ Route::get('my-orders', [Order_masterController::class, 'Myorders'])->name('front.frontInterface.my-orders')->middleware('auth');
+
+
+//  Route::get('order-view/{id}', [Order_masterController::class, 'orderview'])->name('order-view')->middleware('auth');

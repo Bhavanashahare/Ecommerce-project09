@@ -179,6 +179,19 @@
         </div> --}}
       </div>
     </div>
-
+    <div class="carttotals-card">
+        <div class="carttotals-head">{{ __('Cart Total') }}</div>
+        <div class="carttotals-body">
+            <table class="table">
+                <tbody>
+                    <tr><td><span class="title">{{ __('Price Total') }}</span><span class="price viewcart_price_total"></span></td></tr>
+                    <tr><td><span class="title">{{ __('Tax') }}</span><span class="price viewcart_tax"></span></td></tr>
+                    <tr><td><span class="title">{{ __('Subtotal') }}</span><span class="price viewcart_sub_total"></span></td></tr>
+                    <tr><td><span class="total">{{ __('Total') }}</span><span class="total-price viewcart_total"></span></td></tr>
+                </tbody>
+            </table>
+            <a class="btn theme-btn mt10" href="{{ route('frontend.checkout') }}">{{ __('Proceed To CheckOut') }}</a>
+        </div>
+    </div>
     
   @endsection

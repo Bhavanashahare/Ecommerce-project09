@@ -96,6 +96,6 @@ class ProductController extends Controller
         return view('front.frontInterface.productview',compact('data'));
     }
 
-  
+
 
 }

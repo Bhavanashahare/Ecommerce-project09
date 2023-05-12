@@ -1,6 +1,12 @@
+{{-- <x-app-layout>
+
+</x-app-layout> --}}
 @extends('front.layouts.master')
-@section('title', 'Dashboard')
+@section('title', 'Home')
 @section('content')
+
+
+
 
     <div class="site-wrap">
         <div class="site-blocks-cover" style="background-image: url(images/1.webp);" data-aos="fade">

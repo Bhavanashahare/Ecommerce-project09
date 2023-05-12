@@ -42,7 +42,10 @@ $product=Product::get()->last();
         return view('front.frontInterface.shop-single');
     }
     public function checkout(){
-        return view('front.frontInterface.checkout');
+
+        $data=cart::instance('shopping')->content();
+        // dd($data);
+        return view('front.frontInterface.checkout',compact('data'));
     }
 
     public function thankyou(){

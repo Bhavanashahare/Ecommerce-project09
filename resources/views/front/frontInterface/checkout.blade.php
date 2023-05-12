@@ -304,22 +304,28 @@
                                         <th>Total</th>
                                     </thead>
                                     <tbody>
+                                        @foreach($data as $d)
                                         <tr>
-                                            <td>Top Up T-Shirt <strong class="mx-2">x</strong> 1</td>
-                                            <td>$250.00</td>
+                                            <td>{{$d->name}}<strong class="mx-2">x</strong> 1</td>
+                                            <td>{{$d->price}}</td>
                                         </tr>
-                                        <tr>
+                                        {{-- <tr>
                                             <td>Polo Shirt <strong class="mx-2">x</strong> 1</td>
                                             <td>$100.00</td>
-                                        </tr>
+                                        </tr> --}}
                                         <tr>
                                             <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
-                                            <td class="text-black">$350.00</td>
+                                            <td class="text-black">{{Cart::subtotal()}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-black font-weight-bold"><strong>Tax</strong></td>
+                                            <td class="text-black font-weight-bold"><strong>{{Cart::tax()}}</strong></td>
                                         </tr>
                                         <tr>
                                             <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                                            <td class="text-black font-weight-bold"><strong>$350.00</strong></td>
+                                            <td class="text-black font-weight-bold"><strong>{{Cart::total()}}</strong></td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
 
