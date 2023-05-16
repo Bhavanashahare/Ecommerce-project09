@@ -7,7 +7,7 @@
 </x-app-layout>
 
 
-<h1>Hello {{$dasuser->name}} </h1>
+<h1>Hello {{$dashuser->name}} </h1>
 <h2>From your account dashboard. you can view your recent orders, profile and change password.</h2>
 
 

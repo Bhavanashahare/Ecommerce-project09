@@ -251,7 +251,7 @@
 
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault1">
+                                        id="flexRadioDefault1" value="">
                                     <label class="form-check-label" for="flexRadioDefault1">
                                         <img class="direct-chat-img" src="images/don(1).jpg"
                                         alt="message user image" width="100px">
@@ -260,7 +260,7 @@
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault2">
+                                        id="flexRadioDefault2" value="">
                                     <label class="form-check-label" for="flexRadioDefault2">
                                         <img class="direct-chat-img" src="images/bo.jpg"
                                         alt="message user image" width="100px">

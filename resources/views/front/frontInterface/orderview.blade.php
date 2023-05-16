@@ -1,4 +1,4 @@
-{{-- @extends('front.layouts.master')
+@extends('front.layouts.master')
 @section('title', 'Cart')
 @section('content')
 <main class="main">
@@ -169,4 +169,4 @@
 
 	<!-- /Popular Products/ -->
 </main>
-@endsection --}}
+@endsection

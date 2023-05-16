@@ -66,12 +66,10 @@ class Order_masterController extends Controller
         return view('front.frontInterface.my-order',compact('data'));
 
  }
-// public function orderview($id){
-
-//     $data=Product::find($id);
-//     return view('order-view',compact('data'));
-// }
-
-
+ public function orderview($id){
+    $data=Product::find($id);
+    // dd($data);
+    return view('front.frontInterface.orderview', compact('data'));
+ }
 
 }

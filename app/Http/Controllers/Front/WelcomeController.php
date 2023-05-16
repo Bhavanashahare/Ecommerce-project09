@@ -130,5 +130,24 @@ $product=Product::get()->last();
 
     }
 
+    // public function destroy()
+    // {
+    //     Cart::destroy();
+    //     return redirect()->route('index')->with('msg', 'Cart Items Destroyed Successfully!!');
+    // }
+
+    // public function remove($rowId)
+    // {
+    //     Cart::remove($rowId);
+    //     return redirect()->route('cart')->with('msg', ' Cart Item removed Successfully!!');
+    // }
+
+    // public function checkout()
+    // {
+    //     $data = Cart::instance('default')->content();
+    //     // dd($data);
+    //     return view('frontend.check-out', compact('data'));
+    //    }
+
 }
 

@@ -9,9 +9,9 @@ class MyDashboardController extends Controller
 {
     public function Dashboard(){
 
-        $dasuser=Auth::user();
+        $dashuser=Auth::user();
         // dd($dasuser);
-        return view('dashboard2',compact('dasuser'));
+        return view('dashboard2',compact('dashuser'));
     }
 
 }

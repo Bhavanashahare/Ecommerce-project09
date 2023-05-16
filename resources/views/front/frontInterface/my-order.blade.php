@@ -33,7 +33,7 @@
         <td>{{$d->order_status}}</td>
         <td>
 
-            <a href="{{route('frontend.productview',$d->id)}}"> <button class="btn btn-primary" type="submit">view </button></a>
+            <a href="{{ route('order-view',$d->id) }}"> <button class="btn btn-primary" type="submit">view </button></a>
 
         </td>
 
