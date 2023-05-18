@@ -41,11 +41,10 @@
                                 <label for="c_country" class="text-black">Country <span class="text-danger">*</span></label>
                                 <select id="c_country" class="form-control" name="country">
                                     <option value="1">Select a country</option>
+                                    <option value="2">India</option>
                                     <option value="2">bangladesh</option>
                                     <option value="3">Algeria</option>
                                     <option value="4">Afghanistan</option>
-                                    <option value="5">Ghana</option>
-                                    <option value="6">Albania</option>
                                     <option value="7">Bahrain</option>
                                     <option value="8">Colombia</option>
                                     <option value="9">Dominican Republic</option>
@@ -248,25 +247,43 @@
 
                             <div class="form-group">
                                 <label for="c_order_notes" class="text-black">Payment Method</label>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault1" value="">
+											<input id="payment_method_stripe" name="payment_method" type="radio" value="3"><img src="{{ asset('images/stripe.png') }}" alt="Stripe" />
+                                            <div id="pay_stripe" class="row hideclass">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="mb-3">
+                                                                <div class="form-control" id="card-element"></div>
+                                                                <span class="card-errors" id="card-errors"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                {{-- <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="payment_method"
+                                        id="flexRadioDefault1" value="Cash_on_delevery">
                                     <label class="form-check-label" for="flexRadioDefault1">
                                         <img class="direct-chat-img" src="images/don(1).jpg"
                                         alt="message user image" width="100px">
                                     </label>
-
                                 </div>
+
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault2" value="">
+                                    <input class="form-check-input" type="radio" name="payment_method"
+                                        id="flexRadioDefault2"  value="Bank_Transfer">
                                     <label class="form-check-label" for="flexRadioDefault2">
                                         <img class="direct-chat-img" src="images/bo.jpg"
                                         alt="message user image" width="100px">
                                     </label>
-                                </div>
+                                </div> --}}
+
                             </div>
+
+
+
+
+
                             <div class="form-group">
                                 <button class="btn btn-primary btn-lg py-3 btn-block" onclick=>Submit</button>
                             </div>
@@ -388,5 +405,14 @@
             <!-- </form> -->
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
+<script>
+
+$(function () {
+      $("#payment_method_stripe").on("click", function () {
+		$("#pay_stripe").removeClass("hideclass");
+    });
+});
+</script>
 @endsection

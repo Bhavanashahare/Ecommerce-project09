@@ -5,8 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
-
-use COM;
+use Cart;
 
 class ProductController extends Controller
 {
@@ -88,10 +87,11 @@ class ProductController extends Controller
         return redirect()->route('products')->with ('message','Data Delete Successfully!!!');
     }
 
-    public function getProductPage($id){
-
+    public function getProductPage(Request $request,$id){
+        // dd($request);
         $data=Product::find($id);
     //  dd($data);
+    // Cart::remove($rowId);
 
         return view('front.frontInterface.productview',compact('data'));
     }

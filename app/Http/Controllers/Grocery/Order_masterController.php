@@ -7,10 +7,12 @@ use App\Models\Order_master;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Auth;
+use Cart;
 class Order_masterController extends Controller
 {
-    public function LoadMakeOrder(Request $request)
+    public function LoadMakeOrder(Request $request,$rowId)
     {
+       
          $request->validate(
         [
            'country'=>'required',
@@ -49,12 +51,14 @@ class Order_masterController extends Controller
         //  $data->comments=$request->comments;
         // $data->status=$request->status;
         //  dd($data);
-         $data->payment_method=4;
+        //  $data->payment_method=4;
+        $data->payment_method=$request->payment_method;
          $data->payment_status=1;
          $data->order_status=1;
           $data->qty=200;
          $data->amount=400;
         $data->save();
+        $response =   Cart::remove($rowId);
      return redirect()->route('front.frontInterface.my-orders');
     }
     public function Myorders()

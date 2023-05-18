@@ -113,9 +113,11 @@ $product=Product::get()->last();
 
             //  }
         public function RemoveToWishlist($rowid){
+
+
             $res = array();
 
-            $response = Cart::instance('wishlist')->get($rowid);
+            $response =   Cart::remove($rowId);
             // dd( $response);
             if($response == ''){
                 $res['msgType'] = 'success';
@@ -148,6 +150,8 @@ $product=Product::get()->last();
     //     // dd($data);
     //     return view('frontend.check-out', compact('data'));
     //    }
+
+
 
 }
 

@@ -83,7 +83,7 @@
 
 
                                             <td class="text-center pro-remove-w" data-title="Remove:">
-
+                                                <input type="hidden" name="rowId" value="{{ $d->rowId }}">
                                                 <a class="pro-remove" data-id="{{ $d->rowId }}"
                                                     id="removetoviewcart_{{ $product->id }}"
                                                     href="{{ route('frontend.productview', $product->id) }}">

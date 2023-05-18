@@ -127,7 +127,7 @@ Route::get('/shop', [WelcomeController::class, 'shop'])->name('shop');
 Route::get('/shop-single', [WelcomeController::class, 'shopsingle'])->name('shopsingle');
 Route::get('/cart', [WelcomeController::class, 'cart'])->name('cart');
 
-Route::get('cart/remove/{id}',[WelcomeController::class,'remove'])->name('cart.remove');
+// Route::get('cart/remove/{id}',[WelcomeController::class,'remove'])->name('cart.remove');
 
 Route::get('/checkout', [WelcomeController::class, 'checkout'])->name('checkout');
 
@@ -154,7 +154,7 @@ Route::get('add_to_wishlist/{id}', [CartController::class, 'addToWishlist'])->na
 Route::get('/frontend/count_wishlist', [CartController::class, 'countWishlist'])->name('frontend.countWishlist');
  Route::get('add_to_cart/{id}', [CartController::class, 'AddToCart'])->name('frontend.add_to_cart');
 
- Route::get('cart/remove/{id}',[CartController::class,'remove'])->name('cart.remove');
+//  Route::get('cart/remove/{id}',[CartController::class,'remove'])->name('cart.remove');
 
  Route::get('frontend/viewcart_data', [CartController::class, 'getViewCartData'])->name('frontend.getViewCartData');
  Route::get('remove_to_cart/{rowid}', [CartController::class, 'RemoveToCart'])->name('frontend.remove_to_cart');

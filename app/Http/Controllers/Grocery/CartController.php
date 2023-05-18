@@ -110,5 +110,9 @@ class CartController extends Controller
         return view('front.frontInterface.productview',compact('data'));
     }
 
-
+     public function remove($rowId)
+     {
+        Cart::remove($rowId);
+         return redirect()->route('cart')->with('message',"cart remove Successfully!");
+     }
 }
