@@ -247,7 +247,8 @@
 
                             <div class="form-group">
                                 <label for="c_order_notes" class="text-black">Payment Method</label>
-											<input id="payment_method_stripe" name="payment_method" type="radio" value="3"><img src="{{ asset('images/stripe.png') }}" alt="Stripe" />
+                                {{-- <input id="payment_method_stripe" name="payment_method" type="radio" value="3">
+                                            <img src="{{ asset('images/stripe.png') }}" alt="Stripe" />
                                             <div id="pay_stripe" class="row hideclass">
                                                 <div class="col-md-12">
                                                     <div class="row">
@@ -259,26 +260,43 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                {{-- <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="payment_method"
-                                        id="flexRadioDefault1" value="Cash_on_delevery">
-                                    <label class="form-check-label" for="flexRadioDefault1">
-                                        <img class="direct-chat-img" src="images/don(1).jpg"
-                                        alt="message user image" width="100px">
-                                    </label>
+                                            </div> --}}
+                                <div>
+                                    <div>
+                                        <input class="form-check-input" type="radio" name="payment_method"
+                                            id="flexRadioDefault1" value="Cash_on_delevery">
+                                        <img class="direct-chat-img" src="images/don(1).jpg" alt="message user image"
+                                            width="100px">
+                                    </div>
+
+                                    <div>
+
+                                        <input class="form-check-input" type="radio" name="payment_method"
+                                            id="flexRadioDefault2" value="Bank_Transfer">
+                                        <img class="direct-chat-img" src="images/bo.jpg" alt="message user image"
+                                            width="100px">
+
+                                    </div>
+{{--
+                                    <div>
+                                        <a href="{{ route('stripe.post') }}">
+                                            <input class="form-check-input" type="radio" name="payment_method"
+                                                id="flexRadioDefault2" value="stripe"><img class="direct-chat-img"
+                                                src="images/stripe.jpeg" alt="message user image" width="100px"></a>
+                                    </div> --}}
+                                    <div>
+                                        <div>
+                                        <a href="{{ route('razorpay.payment.store') }}">
+                                            <input class="form-check-input" type="radio" name="payment_method"
+                                                id="flexRadioDefault2" value="stripe"><img class="direct-chat-img"
+                                                src="images/razor.png" alt="message user image" width="100px"></a>
+                                    </div>
                                 </div>
 
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="payment_method"
-                                        id="flexRadioDefault2"  value="Bank_Transfer">
-                                    <label class="form-check-label" for="flexRadioDefault2">
-                                        <img class="direct-chat-img" src="images/bo.jpg"
-                                        alt="message user image" width="100px">
-                                    </label>
-                                </div> --}}
-
+                                </div>
                             </div>
+
+
 
 
 
@@ -321,27 +339,29 @@
                                         <th>Total</th>
                                     </thead>
                                     <tbody>
-                                        @foreach($data as $d)
-                                        <tr>
-                                            <td>{{$d->name}}<strong class="mx-2">x</strong> 1</td>
-                                            <td>{{$d->price}}</td>
-                                        </tr>
-                                        {{-- <tr>
+                                        @foreach ($data as $d)
+                                            <tr>
+                                                <td>{{ $d->name }}<strong class="mx-2">x</strong> 1</td>
+                                                <td>{{ $d->price }}</td>
+                                            </tr>
+                                            {{-- <tr>
                                             <td>Polo Shirt <strong class="mx-2">x</strong> 1</td>
                                             <td>$100.00</td>
                                         </tr> --}}
-                                        <tr>
-                                            <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
-                                            <td class="text-black">{{Cart::subtotal()}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-black font-weight-bold"><strong>Tax</strong></td>
-                                            <td class="text-black font-weight-bold"><strong>{{Cart::tax()}}</strong></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                                            <td class="text-black font-weight-bold"><strong>{{Cart::total()}}</strong></td>
-                                        </tr>
+                                            <tr>
+                                                <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
+                                                <td class="text-black">{{ Cart::subtotal() }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-black font-weight-bold"><strong>Tax</strong></td>
+                                                <td class="text-black font-weight-bold">
+                                                    <strong>{{ Cart::tax() }}</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
+                                                <td class="text-black font-weight-bold">
+                                                    <strong>{{ Cart::total() }}</strong></td>
+                                            </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -389,7 +409,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                        <a href="{{ route('thankyou') }}"><button type="button" class="btn btn-primary btn-lg btn-block" >Place Order</button></a>
+                                    <a href="{{ route('thankyou') }}"><button type="button"
+                                            class="btn btn-primary btn-lg btn-block">Place Order</button></a>
 
                                     {{-- <button class="btn btn-primary btn-lg py-4 btn-block ">
                                         <a href="{{ route('thankyou') }}">Place Order</button></a> --}}
@@ -407,12 +428,11 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-<script>
-
-$(function () {
-      $("#payment_method_stripe").on("click", function () {
-		$("#pay_stripe").removeClass("hideclass");
-    });
-});
-</script>
+    <script>
+        $(function() {
+            $("#payment_method_stripe").on("click", function() {
+                $("#pay_stripe").removeClass("hideclass");
+            });
+        });
+    </script>
 @endsection

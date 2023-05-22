@@ -15,6 +15,8 @@ use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\grocery\CartController;
 use App\Http\Controllers\Grocery\MyDashboardController;
 use App\Http\Controllers\Grocery\Order_masterController;
+use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\RazorpayPaymentController;
 
 // i didn't migrate table on review and order in table we cannot migrate or create table or datable//
 
@@ -173,3 +175,11 @@ Route::get('remove_to_wishlist/{rowid}', [WelcomeController::class, 'RemoveToWis
 
 
 Route::get('order-view/{id}', [Order_masterController::class, 'orderview'])->name('order-view')->middleware('auth');
+
+// payment integration
+// Route::controller(StripePaymentController::class)->group(function(){
+//     Route::get('stripe', 'stripe');
+//     Route::post('stripe', 'stripePost')->name('stripe.post');
+// });
+Route::get('razorpay-payment', [RazorpayPaymentController::class, 'index']);
+Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
