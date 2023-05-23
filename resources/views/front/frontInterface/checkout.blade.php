@@ -262,28 +262,22 @@
                                                 </div>
                                             </div> --}}
                                 <div>
-                                    <div>
+                                    {{-- <div>
                                         <input class="form-check-input" type="radio" name="payment_method"
                                             id="flexRadioDefault1" value="Cash_on_delevery">
                                         <img class="direct-chat-img" src="images/don(1).jpg" alt="message user image"
                                             width="100px">
-                                    </div>
+                                    </div> --}}
 
-                                    <div>
+                                    {{-- <div>
 
                                         <input class="form-check-input" type="radio" name="payment_method"
                                             id="flexRadioDefault2" value="Bank_Transfer">
                                         <img class="direct-chat-img" src="images/bo.jpg" alt="message user image"
                                             width="100px">
 
-                                    </div>
-{{--
-                                    <div>
-                                        <a href="{{ route('stripe.post') }}">
-                                            <input class="form-check-input" type="radio" name="payment_method"
-                                                id="flexRadioDefault2" value="stripe"><img class="direct-chat-img"
-                                                src="images/stripe.jpeg" alt="message user image" width="100px"></a>
                                     </div> --}}
+
                                     <div>
                                         <div>
                                         <a href="{{ route('razorpay.payment.store') }}">
@@ -426,7 +420,7 @@
             <!-- </form> -->
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     <script>
         $(function() {
@@ -434,5 +428,5 @@
                 $("#pay_stripe").removeClass("hideclass");
             });
         });
-    </script>
+    </script> --}}
 @endsection

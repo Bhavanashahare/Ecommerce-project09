@@ -129,7 +129,7 @@ Route::get('/shop', [WelcomeController::class, 'shop'])->name('shop');
 Route::get('/shop-single', [WelcomeController::class, 'shopsingle'])->name('shopsingle');
 Route::get('/cart', [WelcomeController::class, 'cart'])->name('cart');
 
-// Route::get('cart/remove/{id}',[WelcomeController::class,'remove'])->name('cart.remove');
+//  Route::get('cart/remove/{id}',[WelcomeController::class,'remove'])->name('cart.remove');
 
 Route::get('/checkout', [WelcomeController::class, 'checkout'])->name('checkout');
 
@@ -183,3 +183,9 @@ Route::get('order-view/{id}', [Order_masterController::class, 'orderview'])->nam
 // });
 Route::get('razorpay-payment', [RazorpayPaymentController::class, 'index']);
 Route::post('razorpay-payment', [RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
+
+
+Route::get('/send-email', [MailController::class, 'sendEmail']);
+
+Route::get('/emailmsg', [Order_masterController::class, 'emailmsg'])->name('emailmsg');
+

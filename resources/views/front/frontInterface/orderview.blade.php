@@ -11,13 +11,13 @@
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item">
 								<a href="{{ url('/') }}">{{ __('Home') }}</a></li>
-							<li class="breadcrumb-item active"
-							aria-current="page">{{ $data->title }}</li>
+							{{-- <li class="breadcrumb-item active"
+							aria-current="page">{{ $data->title }}</li> --}}
 						</ol>
 					</nav>
 				<div class="col-lg-6">
 					<div class="page-title">
-						<h1>{{ $data->title }}</h1>
+						{{-- <h1>{{ $data->title }}</h1> --}}
 
 				</div>
 					</div>
@@ -53,7 +53,7 @@
 				</div>
 				<div class="col-xl-7">
 					 <div class="pr_details">
-						<h4 class="product_title">{{$data->title }}</h4>
+						{{-- <h4 class="product_title">{{$data->title }}</h4> --}}
 
 						{{-- @if($data->short_desc != '') --}}
 						{{-- <p>{{ $data->short_desc }}</p> --}}
@@ -61,11 +61,11 @@
 						{{-- @if($data->shop_name != '') --}}
 						{{-- <div class="pr_extra">--}}
 							<strong>{{ __('Description') }}:</strong>
-							<label>{{$data->description}}</label><br>
+							{{-- <label>{{$data->description}}</label><br> --}}
 							<strong>{{ __('Sold By') }}:</strong>
 							<label>janki</label>
 		 {{-- <a href="{{ route('frontend.stores', [$data->seller_id)]) }}"> --}}
-			<a>{{ $data->shop_name }}</a></div>
+			{{-- <a>{{ $data->shop_name }}</a></div> --}}
 						{{-- @endif --}}
 						<strong><label for="quantity">Price:</label></strong>
 					<label>200</label>
@@ -109,11 +109,11 @@
 
 						</div>
 						<div class="pr_buy_cart">
-							<a  class="site-cart" id="quantity" data-id="{{ $data->id }}">
+							{{-- <a  class="site-cart" id="quantity" data-id="{{ $data->id }}"> --}}
 								{{-- below class give and id also ,data id="product->id" --}}
 								<span class="icon icon-shopping_cart"></span>
 
-						  <a class="addtowishlist" data-id="{{ $data->id }}" >
+						  {{-- <a class="addtowishlist" data-id="{{ $data->id }}" > --}}
 							<span class="icon icon-heart-o"></span></a>
 
 							{{-- <a class="btn btn-primary theme-btn cart product_addtocart" data-id="{{ $data->id }}" data-stockqty="{{ $data->is_stock == 1 ? $data->stock_qty : 999 }}" href="javascript:void(0);">{{ __('Add To Cart') }}</a>--}}

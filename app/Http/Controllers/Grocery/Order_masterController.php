@@ -6,13 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Models\Order_master;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EmailDemo;
 use Auth;
 use Cart;
 class Order_masterController extends Controller
 {
-    public function LoadMakeOrder(Request $request,$rowId)
+    public function LoadMakeOrder(Request $request)
     {
-       
+
          $request->validate(
         [
            'country'=>'required',
@@ -57,8 +59,15 @@ class Order_masterController extends Controller
          $data->order_status=1;
           $data->qty=200;
          $data->amount=400;
-        $data->save();
-        $response =   Cart::remove($rowId);
+        //  mail trap
+        // $data->save();
+        $mailData = [
+            'fname'=>'fname',
+            'title' => 'Demo Email',
+            'url' => 'https://www.positronx.io'
+        ];
+        Mail::to($request->email)->send(new EmailDemo($mailData));
+// mail trap end
      return redirect()->route('front.frontInterface.my-orders');
     }
     public function Myorders()
@@ -72,8 +81,11 @@ class Order_masterController extends Controller
  }
  public function orderview($id){
     $data=Product::find($id);
-    // dd($data);
+    // dd($data); check product id xaamp
     return view('front.frontInterface.orderview', compact('data'));
  }
+//  public function emailmsg(){
+//     return view('Email.demoEmail');
+// }
 
 }

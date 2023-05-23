@@ -151,7 +151,6 @@ $product=Product::get()->last();
     //     return view('frontend.check-out', compact('data'));
     //    }
 
-
-
+  
 }
 
