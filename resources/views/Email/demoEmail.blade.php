@@ -1,4 +1,4 @@
-
+blade file
 {{-- @component('mail::message')  --}}
 {{-- # {{ $mailData['title'] }} --}}
 {{-- The body of your message. --}}
@@ -27,21 +27,21 @@ Content-Type: text/html; charset=utf-8 --}}
 									<td>
 										<table style="background-color:#fff;max-width:1000px;margin:0 auto;padding:30px;" border="0" cellpadding="0" cellspacing="0" width="100%">
 											<tr><td style="font-size:40px;border-bottom:1px solid #ddd;padding-bottom:25px;font-weight:bold;text-align:center;">Theme Posh</td></tr>
-											{{-- <tr><td style="font-size:25px;font-weight:bold;padding:30px 0px 5px 0px;">Hi  {{ $mailData['fname'] }}</td></tr> --}}
+											<tr><td style="font-size:25px;font-weight:bold;padding:30px 0px 5px 0px;">Hi  {{ $mailData['fname'] }}</td></tr>
 											<tr><td>We have received your order and will contact you as soon as your package is shipped. You can find your purchase information below.</td></tr>
 											<tr>
 												<td style="padding-top:30px;padding-bottom:20px;">
 													<table border="0" cellpadding="0" cellspacing="0" width="100%">
 														<tr>
 															<td style="vertical-align: top;">
-																{{-- <table border="0" cellpadding="3" cellspacing="0" width="100%">
+																<table border="0" cellpadding="3" cellspacing="0" width="100%">
 																	<tr><td style="font-size:16px;font-weight:bold;">BILL TO:</td></tr>
 																	<tr><td><strong>{{ $mailData['fname'] }}</strong></td></tr>
-																	<tr><td>{{ $mailData['address'] }}</td></tr>
+																	 <tr><td> {{ $mailData['address'] }}</td></tr>
 																	<tr><td>Bhandara, Maharashtra, 441904, India</td></tr>
 																	<tr><td>{{ $mailData['email'] }}</td></tr>
 																	<tr><td>{{ $mailData['phone'] }}</td></tr>
-																</table> --}}
+																</table>
 																<table style="padding:30px 0px;" border="0" cellpadding="3" cellspacing="0" width="100%">
 																	<tr><td style="font-size:16px;font-weight:bold;">BILL FROM:</td></tr>
 																	<tr><td><strong>Theme Posh</strong></td></tr>

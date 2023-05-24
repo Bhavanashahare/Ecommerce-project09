@@ -14,13 +14,11 @@ class MailController extends Controller {
             'title' => 'Demo Email',
             'url' => 'https://www.positronx.io'
         ];
-
+  
         Mail::to($email)->send(new EmailDemo($mailData));
 
         return response()->json([
             'message' => 'Email has been sent.'
         ], Response::HTTP_OK);
     }
-
-    
 }

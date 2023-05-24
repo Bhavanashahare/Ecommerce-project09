@@ -62,16 +62,16 @@ class Order_masterController extends Controller
 
         //  mail trap
         // $data->save();
-        // $mailData = [
-        //     'fname' => $data->fname,
-        //     'address' => $data->address,
-        //     'email' => $request->email,
-        //     'phone' => $data->phone,
-        //     'title' => 'Demo Email',
-        //     'url' => 'https://www.positronx.io'
-        // ];
+        $mailData = [
+            'fname' => $data->fname,
+            'address' => $data->address,
+            'email' => $data->email,
+            'phone' => $data->phone,
+            'title' => 'Demo Email',
+            'url' => 'https://www.positronx.io'
+        ];
 
-        // Mail::to($request->email)->send(new EmailDemo($mailData));
+        Mail::to($request->email)->send(new EmailDemo($mailData));
 
 // mail trap end
      return redirect()->route('front.frontInterface.my-orders');

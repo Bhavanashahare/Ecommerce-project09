@@ -15,8 +15,9 @@ use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\grocery\CartController;
 use App\Http\Controllers\Grocery\MyDashboardController;
 use App\Http\Controllers\Grocery\Order_masterController;
-use App\Http\Controllers\StripePaymentController;
+// use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\RazorpayPaymentController;
+use App\Http\Controllers\MailController;
 
 // i didn't migrate table on review and order in table we cannot migrate or create table or datable//
 
