@@ -35,7 +35,7 @@ class Order_masterController extends Controller
         $i=1;
 
         $random_code = random_int(100000, 999999);
-        $data->user_id=Auth::user()->id;
+        //  $data->user_id=Auth::user()->id;
 
         $data->order_no='ORD-'.$random_code.$i;
 
@@ -59,14 +59,20 @@ class Order_masterController extends Controller
          $data->order_status=1;
           $data->qty=200;
          $data->amount=400;
+
         //  mail trap
         // $data->save();
-        $mailData = [
-            'fname'=>'fname',
-            'title' => 'Demo Email',
-            'url' => 'https://www.positronx.io'
-        ];
-        Mail::to($request->email)->send(new EmailDemo($mailData));
+        // $mailData = [
+        //     'fname' => $data->fname,
+        //     'address' => $data->address,
+        //     'email' => $request->email,
+        //     'phone' => $data->phone,
+        //     'title' => 'Demo Email',
+        //     'url' => 'https://www.positronx.io'
+        // ];
+
+        // Mail::to($request->email)->send(new EmailDemo($mailData));
+
 // mail trap end
      return redirect()->route('front.frontInterface.my-orders');
     }

@@ -238,7 +238,7 @@
 			success: function (response) {
 				var msgType = response.msgType;
 				var msg = response.msg;
-  alert('msg');
+//   alert('msg');
 				if (msgType == "success") {
 					onSuccessMsg(msg);
 				} else {
