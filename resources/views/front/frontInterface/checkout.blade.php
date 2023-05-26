@@ -282,7 +282,7 @@
                                         <div>
                                         <a href="{{ route('razorpay.payment.store') }}">
                                             <input class="form-check-input" type="radio" name="payment_method"
-                                                id="flexRadioDefault2" value="stripe"><img class="direct-chat-img"
+                                                id="flexRadioDefault2" value="razorpay"><img class="direct-chat-img"
                                                 src="images/razor.png" alt="message user image" width="100px"></a>
                                     </div>
                                 </div>

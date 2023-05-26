@@ -30,7 +30,6 @@ class RazorpayPaymentController extends Controller
 // add key 1&2
         $api = new Api(env('rzp_test_evEOCCEcbjwPij'), ('zwhSAd5IQ97tNvJ6NMOfUTSg'));
         //
-
         $payment = $api->payment->fetch($input['razorpay_payment_id']);
 
         if(count($input)  && !empty($input['razorpay_payment_id'])) {

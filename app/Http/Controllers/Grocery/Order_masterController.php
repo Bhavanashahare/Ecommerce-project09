@@ -55,6 +55,7 @@ class Order_masterController extends Controller
         //  dd($data);
         //  $data->payment_method=4;
         $data->payment_method=$request->payment_method;
+        // dd($data);
          $data->payment_status=1;
          $data->order_status=1;
           $data->qty=200;
@@ -67,6 +68,9 @@ class Order_masterController extends Controller
             'address' => $data->address,
             'email' => $data->email,
             'phone' => $data->phone,
+            'order_no' => $data->order_no,
+
+
             'title' => 'Demo Email',
             'url' => 'https://www.positronx.io'
         ];
@@ -74,6 +78,11 @@ class Order_masterController extends Controller
         Mail::to($request->email)->send(new EmailDemo($mailData));
 
 // mail trap end
+// check the instance from demoemail.blade check mail tax,subtotal,total
+// $data = Cart::instance('shopping')->tax();
+// $data = Cart::instance('shopping')->subtotal();
+// $data = Cart::instance('shopping')->total();
+
      return redirect()->route('front.frontInterface.my-orders');
     }
     public function Myorders()
@@ -81,7 +90,7 @@ class Order_masterController extends Controller
         $loggin = Auth::User();
 
          $data=Order_master::where('user_id',$loggin->id)->get();
-
+// dd($data);
         return view('front.frontInterface.my-order',compact('data'));
 
  }
