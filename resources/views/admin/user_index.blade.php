@@ -32,7 +32,7 @@
                                         <th style="width:20px">Id</th>
                                         <th style="width:20px">Name</th>
                                         <th style="width:30px">Email</th>
-                                       
+
                                         <th style="width: 40px">Profile-photo</th>
                                     </tr>
                                 </thead>
@@ -45,20 +45,7 @@
                                             <td> {{ $d->email }}</td>
 
 
-                                            <td><img
-                                                src="{{ asset('uploads/' . $d->image) }}"width="50px"height="50px" alt="">
-
-
-                                                {{-- <button type="button" class="btn btn-warning">
-                                                    <a href="{{ route('brands.edit', $d->id) }}">
-                                                        Edit</button></a>
-                                                <button type="button" class="btn btn-danger">
-
-                                                    <a href="{{ route('brand.delete', $d->id) }}">
-
-                                                        Delete</button></a> --}}
-
-                                            </td>
+                                            <td><img src="{{ asset('uploads/'.$d->image) }}"width="50px"height="50px" alt=""></td>
 
 
                                         </tr>

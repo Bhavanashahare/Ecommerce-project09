@@ -28,7 +28,8 @@
 
 
                     <div class="site-section-heading pt-3 mb-4">
-                        <h2 class="text-black">{{ $product->title }}</h2>
+
+                        <h2 class="text-black">How We Started</h2>
                     </div>
                     {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius repellat, dicta at laboriosam,
                     nemo exercitationem itaque eveniet architecto cumque, deleniti commodi molestias repellendus
@@ -88,7 +89,7 @@
                     <div class="block-38 text-center">
                         <div class="block-38-img">
                             <div class="block-38-header">
-                                <img src="images/sb.jpg" alt="Image placeholder" class="mb-4">
+                                <img src="images/sb.jpg" alt="Image placeholder" class="mb-4" height="160px" width="160px">
                                 <h3 class="block-38-heading h4">Shubhangi Borkar</h3>
                                 <p class="block-38-subheading">Marketing</p>
                             </div>

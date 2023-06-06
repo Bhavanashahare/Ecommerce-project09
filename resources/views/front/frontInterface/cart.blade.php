@@ -59,11 +59,11 @@
 
                                             <td> {{ $product->sale_price }}</td>
                                             {{-- <td class="text-center pro-total-price-w" data-title="{{ __('Total') }}:">
-                        <span class="pro-total-price">{{ $totalPrice }}</span>
+                        <span class="pro-total-price">{{ $product->sale_price*1 }}</span>
                     </td> --}}
 
                                             <td>
-                                                <div class="input-group mb-3" style="max-width: 120px;">
+                                                {{-- <div class="input-group mb-3" style="max-width: 120px;">
                                                     <div class="input-group-prepend">
                                                         <button class="btn btn-outline-primary js-btn-minus"
                                                             type="button">&minus;</button>
@@ -75,10 +75,10 @@
                                                         <button class="btn btn-outline-primary js-btn-plus"
                                                             type="button">&plus;</button>
                                                     </div>
-                                                </div>
-
+                                                </div> --}}
+1
                                             </td>
-                                            <td>{{ $product->sale_price }}</td>
+                                            <td>{{ $product->sale_price*1 }}</td>
 
 
 

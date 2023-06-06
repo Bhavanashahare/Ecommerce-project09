@@ -81,6 +81,7 @@ $product=Product::get()->last();
             $file->move('uploads', $filename);
             $user->image = $filename;
         }
+        // dd($user);
         $user->save();
         return redirect()->route('user_profile.index') ->with('message','Data Updated Successfully!!!');
         // dd($request);
@@ -89,7 +90,7 @@ $product=Product::get()->last();
     public function user_profile_index(){
 
             $user=User::all();
-
+            // dd($user);
             return view('admin.user_index',compact ('user'));
             }
 
@@ -151,6 +152,6 @@ $product=Product::get()->last();
     //     return view('frontend.check-out', compact('data'));
     //    }
 
-  
+
 }
 

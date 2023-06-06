@@ -195,25 +195,27 @@
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
 
-                <img src="{{ asset('img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
+                <img src="{{ asset('images/im.png') }}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <span class="brand-text font-weight-light">SHOPPER</span>
             </a>
 
             <!-- Sidebar -->
             <div class="sidebar">
                 <?php
-                $user = Auth::user();
+                $user=Auth::user();
                 ?>
+
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
 
                     <div class="image">
-                      <?php
-                $user = Auth::user();
-                ?>
-                        <img src="{{ asset('uploads/' . $user->image) }}" class="img-circle elevation-2"
-                            alt="User Image">
+                        <?php
+                        $user = Auth::user();
+                        //dd($user)
+                        ?>
+
+                        <img src="/uploads/{{$user->image}}" class="img-circle elevation-2"alt="User Image">
                     </div>
                     <div class="info">
 
@@ -302,7 +304,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('order.index') }}" class="nav-link">
+                            <a href="{{ route('front.frontInterface.my-orders') }}" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>
                                     Orders
@@ -482,7 +484,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                        </li> --}}
+                        </li>
                         {{-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>

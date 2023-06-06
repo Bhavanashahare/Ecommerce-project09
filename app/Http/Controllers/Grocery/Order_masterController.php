@@ -30,7 +30,6 @@ class Order_masterController extends Controller
 
 
         ]);
-
         $data=new Order_master();
         $i=1;
 
@@ -52,24 +51,23 @@ class Order_masterController extends Controller
         $data->phone=$request->phone;
         //  $data->comments=$request->comments;
         // $data->status=$request->status;
-        //  dd($data);
         //  $data->payment_method=4;
         $data->payment_method=$request->payment_method;
         // dd($data);
-         $data->payment_status=1;
-         $data->order_status=1;
-          $data->qty=200;
-         $data->amount=400;
-
+        $data->payment_status=1;
+        $data->order_status=1;
+        $data->qty=200;
+        $data->amount=400;
+        // dd($data);
         //  mail trap
-        // $data->save();
+        // dd($data);
+         $data->save();
         $mailData = [
             'fname' => $data->fname,
             'address' => $data->address,
             'email' => $data->email,
             'phone' => $data->phone,
             'order_no' => $data->order_no,
-
 
             'title' => 'Demo Email',
             'url' => 'https://www.positronx.io'
@@ -90,13 +88,13 @@ class Order_masterController extends Controller
         $loggin = Auth::User();
 
          $data=Order_master::where('user_id',$loggin->id)->get();
-// dd($data);
         return view('front.frontInterface.my-order',compact('data'));
 
  }
  public function orderview($id){
     $data=Product::find($id);
-    // dd($data); check product id xaamp
+    dd($data);
+    //check product id xaamp
     return view('front.frontInterface.orderview', compact('data'));
  }
 //  public function emailmsg(){

@@ -262,21 +262,21 @@
                                                 </div>
                                             </div> --}}
                                 <div>
-                                    {{-- <div>
+                                    <div>
                                         <input class="form-check-input" type="radio" name="payment_method"
                                             id="flexRadioDefault1" value="Cash_on_delevery">
                                         <img class="direct-chat-img" src="images/don(1).jpg" alt="message user image"
                                             width="100px">
-                                    </div> --}}
+                                    </div>
 
-                                    {{-- <div>
+                                    <div>
 
                                         <input class="form-check-input" type="radio" name="payment_method"
                                             id="flexRadioDefault2" value="Bank_Transfer">
                                         <img class="direct-chat-img" src="images/bo.jpg" alt="message user image"
                                             width="100px">
 
-                                    </div> --}}
+                                    </div>
 
                                     <div>
                                         <div>

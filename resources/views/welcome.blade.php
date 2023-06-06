@@ -13,10 +13,12 @@
             <div class="container">
                 <div class="row align-items-start align-items-md-center justify-content-end">
                     <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
-                        <h1 class="mb-2">Finding Your Perfect Shoes</h1>
+                        <h1 class="mb-2">Finding Your Perfect product</h1>
                         <div class="intro-text text-center text-md-left">
-                            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis
-                                quam. Integer accumsan tincidunt fringilla. </p>
+                            <p class="mb-4">A vegetable is the edible portion of a plant. Vegetables are usually grouped
+                                according to the portion of the plant that is eaten such as leaves (lettuce), stem (celery),
+                                roots (carrot), tubers (potato), bulbs (onion) and flowers (broccoli). A fruit is the mature
+                                ovary of a plant. </p>
                             <p>
                                 <a href="" class="btn btn-sm btn-primary">Shop Now</a>
                             </p>
@@ -125,21 +127,24 @@
                                 <div class="item">
                                     <div class="block-4 text-center">
                                         <figure class="block-4-image">
-                                            <a href="{{route('frontend.productview',$product->id)}}">
+                                            <a href="{{ route('frontend.productview', $product->id) }}">
 
-                                            <img src="{{ asset('uploads/' . $product->image) }}" width="320px"
-                                                height="217.14px"></a>
+                                                <img src="{{ asset('uploads/' . $product->image) }}" width="320px"
+                                                    height="217.14px"></a>
                                         </figure>
                                         <div class="block-4-text p-4">
-                                            <h3><a href="{{route('frontend.productview',$product->id)}}">{{ $product->title }}</a></h3>
+                                            <h3><a
+                                                    href="{{ route('frontend.productview', $product->id) }}">{{ $product->title }}</a>
+                                            </h3>
                                             <p class="mb-0">{!! $product->description !!}</p>
                                             <p class="text-primary font-weight-bold">₹ 50</p>
-{{-- cart code --}}
-                                            <a  class="site-cart" id="quantity" data-id="{{ $product->id }}">
+                                            {{-- cart code --}}
+                                            <a class="site-cart" id="quantity" data-id="{{ $product->id }}">
                                                 {{-- below class give and id also ,data id="product->id" --}}
                                                 <span class="icon icon-shopping_cart"></span>
 
-                                          <a class="addtowishlist" data-id="{{ $product->id }}" ><span class="icon icon-heart-o"></span></a>
+                                                <a class="addtowishlist" data-id="{{ $product->id }}"><span
+                                                        class="icon icon-heart-o"></span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -178,121 +183,123 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <script>
+    $(document).on("click", ".addtowishlist", function(event) {
 
-    	$(document).on("click", ".addtowishlist", function(event) {
-
-		event.preventDefault();
+        event.preventDefault();
         const base_url = "http://127.0.0.1:85";
-		const id = $(this).data('id');
+        const id = $(this).data('id');
         // alert('hrllo');
 
-		$.ajax({
-			type : 'GET',
+        $.ajax({
+            type: 'GET',
             url: '/add_to_wishlist/' + id,
-			dataType:"json",
+            dataType: "json",
 
-			success: function (response) {
-				var msgType = response.msgType;
-				var msg = response.msg;
+            success: function(response) {
+                var msgType = response.msgType;
+                var msg = response.msg;
 
-				if (msgType == "success") {
-					onSuccessMsg(msg);
-				} else {
-					onErrorMsg(msg);
-				}
-				onWishlist();
-			}
-		});
+                if (msgType == "success") {
+                    onSuccessMsg(msg);
+                } else {
+                    onErrorMsg(msg);
+                }
+                onWishlist();
+            }
+        });
     });
 
 
     $(document).on("click", ".site-cart", function(event) { //classname
-		event.preventDefault();
+        event.preventDefault();
 
-		const qty = $("#quantity").val();//idname
-		const id = $(this).data('id');
-// alert('hello');
-// console.log("success");
-		// if((qty == undefined) || (qty == '') || (qty <= 0)){
-		// 	onErrorMsg(TEXT['Please enter quantity.']);
-		// 	return;
-		// }
-		// if(is_stock == 1){
-		// 	var stockqty = $(this).data('stockqty');
-		// 	if(is_stock_status == 1){
-		// 		if(qty > stockqty){
-		// 			onErrorMsg(TEXT['The value must be less than or equal to']);
-		// 			return;
-		// 		}
-		// 	}else{
-		// 		onErrorMsg(TEXT['This product out of stock.']);
-		// 		return;
-		// 	}
-		// }
+        const qty = $("#quantity").val(); //idname
+        const id = $(this).data('id');
+        // alert('hello');
+        // console.log("success");
+        // if((qty == undefined) || (qty == '') || (qty <= 0)){
+        // 	onErrorMsg(TEXT['Please enter quantity.']);
+        // 	return;
+        // }
+        // if(is_stock == 1){
+        // 	var stockqty = $(this).data('stockqty');
+        // 	if(is_stock_status == 1){
+        // 		if(qty > stockqty){
+        // 			onErrorMsg(TEXT['The value must be less than or equal to']);
+        // 			return;
+        // 		}
+        // 	}else{
+        // 		onErrorMsg(TEXT['This product out of stock.']);
+        // 		return;
+        // 	}
+        // }
 
-		$.ajax({
-			type : 'GET',
-			url: '/add_to_cart/' + id,
-			dataType:"json",
+        $.ajax({
+            type: 'GET',
+            url: '/add_to_cart/' + id,
+            dataType: "json",
 
-			success: function (response) {
-				var msgType = response.msgType;
-				var msg = response.msg;
-//   alert('msg');
-				if (msgType == "success") {
-					onSuccessMsg(msg);
-				} else {
-					onErrorMsg(msg);
-				}
-				onViewCart();
-			}
-		});
-    });
+            success: function(response) {
+                var msgType = response.msgType;
+                var msg = response.msg;
+                //   alert('msg');
+                if (msgType == "success") {
+                    onSuccessMsg(msg);
+                    window.location.reload()
+                } else {
+                    onErrorMsg(msg);
+                }
+                onViewCart();
+            }
+        });
+    });
 
-//cart grocery [public/frontend /pages/cart.js]
-function onRemoveToCart(id) {
-	var rowid = $("#removetocart_"+id).data('id');
+    //cart grocery [public/frontend /pages/cart.js]
+    function onRemoveToCart(id) {
+        var rowid = $("#removetocart_" + id).data('id');
 
-	$.ajax({
-		type : 'GET',
-		url: base_url + '/frontend/remove_to_cart/'+rowid,
-		dataType:"json",
-		success: function (response) {
+        $.ajax({
+            type: 'GET',
+            url: base_url + '/frontend/remove_to_cart/' + rowid,
+            dataType: "json",
+            success: function(response) {
 
-			var msgType = response.msgType;
-			var msg = response.msg;
+                var msgType = response.msgType;
+                var msg = response.msg;
 
-			if (msgType == "success") {
-				onSuccessMsg(msg);
-			} else {
-				onErrorMsg(msg);
-			}
+                if (msgType == "success") {
+                    onSuccessMsg(msg);
+                } else {
+                    onErrorMsg(msg);
+                }
 
-			onViewCart();
-		}
+                onViewCart();
+            }
 
-	});
-}
+        });
+    }
+
     function onRemoveToWishlist(id) {
-	var rowid = $("#removetowishlist_"+id).data('id');
+        var rowid = $("#removetowishlist_" + id).data('id');
 
-	$.ajax({
-		type : 'GET',
-		url: base_url + '/frontend/remove_to_wishlist/'+rowid,
-		dataType:"json",
-		success: function (response) {
+        $.ajax({
+            type: 'GET',
+            url: base_url + '/frontend/remove_to_wishlist/' + rowid,
+            dataType: "json",
+            success: function(response) {
 
-			var msgType = response.msgType;
-			var msg = response.msg;
+                var msgType = response.msgType;
+                var msg = response.msg;
 
-			if (msgType == "success") {
-				onSuccessMsg(msg);
-			} else {
-				onErrorMsg(msg);
-			}
+                if (msgType == "success") {
+                    onSuccessMsg(msg);
+                } else {
+                    onErrorMsg(msg);
+                }
 
-			onViewCart();
-		}
-	});
-}
+                onViewCart();
+            }
+        });
+    }
+
 </script>

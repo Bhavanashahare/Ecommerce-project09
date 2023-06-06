@@ -112,23 +112,23 @@ Content-Type: text/html; charset=utf-8 --}}
                     <td>
                         <table style="border-collapse:collapse;" border="0" cellpadding="5" cellspacing="0"
                             width="100%">
-                            <tr>
+                            {{-- <tr>
                                 <th style="width:70%;text-align:left;border:1px solid #ddd;">Product</th>
                                 <th style="width:15%;text-align:center;border:1px solid #ddd;">Price</th>
                                 <th style="width:15%;text-align:right;border:1px solid #ddd;">Total</th>
-                            </tr>
-                            <tr>
+                            </tr> --}}
+                            {{-- <tr>
                                 <td colspan="3"
                                     style="width:100%;text-align:left;border:1px solid #ddd;background-color:#f7f7f7;font-weight:bold;">
                                     Sold By: <a href="http://localhost/Grocery/stores/47/hasbi"> Hasbi</a>, Order#: <a
                                         href="http://localhost/Grocery/order-invoice/478/ORD-5425461"> ORD-5425461</a>
                                 </td>
-                            </tr>
-                            <tr>
+                            </tr> --}}
+                            {{-- <tr>
                                 <td style="width:70%;text-align:left;border:1px solid #ddd;">Dairy Products<br>1 Kg</td>
-                                <td style="width:15%;text-align:center;border:1px solid #ddd;">$120 x 1</td>
-                                <td style="width:15%;text-align:right;border:1px solid #ddd;">$120</td>
-                            </tr>
+                                <td style="width:15%;text-align:center;border:1px solid #ddd;">{{ $data = Cart::instance('shopping')->count() }}</td>
+                                <td style="width:15%;text-align:right;border:1px solid #ddd;">{{ $data = Cart::instance('shopping')->priceTotal() }}</td>
+                            </tr> --}}
                         </table>
                     </td>
                 </tr>
@@ -139,21 +139,21 @@ Content-Type: text/html; charset=utf-8 --}}
 															<td style="width:85%;text-align:left;">Shipment will be within 5-10 days. Fee for per seller: $5.00 <span style="float:right">Shipping Fee:</span></td>
 															<td style="width:15%;text-align:right;">$5.00</td>
 														</tr> --}}
-                            <tr>
+                            {{-- <tr>
                                 <td style="width:85%;text-align:right;">Tax:</td>
                                 <td style="width:15%;text-align:right;">{{ $data = Cart::instance('shopping')->tax() }}
                                 </td>
-                            </tr>
-                            <tr>
+                            </tr> --}}
+                            {{-- <tr>
                                 <td style="width:85%;text-align:right;">Subtotal:</td>
                                 <td style="width:15%;text-align:right;">
                                     {{ $data = Cart::instance('shopping')->subtotal() }}</td>
-                            </tr>
-                            <tr>
+                            </tr> --}}
+                            {{-- <tr>
                                 <td style="width:85%;text-align:right;">Total:</td>
                                 <td style="width:15%;text-align:right;">
                                     {{ $data = Cart::instance('shopping')->total() }}</td>
-                            </tr>
+                            </tr> --}}
                         </table>
                     </td>
                 </tr>
