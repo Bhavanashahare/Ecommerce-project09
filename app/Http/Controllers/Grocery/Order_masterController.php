@@ -93,7 +93,7 @@ class Order_masterController extends Controller
  }
  public function orderview($id){
     $data=Product::find($id);
-    dd($data);
+    // dd($data);
     //check product id xaamp
     return view('front.frontInterface.orderview', compact('data'));
  }
